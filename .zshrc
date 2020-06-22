@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jankoskinen/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,12 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
+# Aliases
 alias zshconfig="vim ~/.zshrc"
 
 # Prompt
@@ -107,16 +102,3 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 setopt PROMPT_SUBST
 PROMPT='%F{green}%n%{$reset_color%} in %F{blue}${PWD/#$HOME/~}%{$reset_color%} %F{red}${vcs_info_msg_0_}%{$reset_color%} $ '
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jankoskinen/.sdkman"
-[[ -s "/Users/jankoskinen/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jankoskinen/.sdkman/bin/sdkman-init.sh"
-
-# Rbenv
-eval "$(rbenv init -)"
