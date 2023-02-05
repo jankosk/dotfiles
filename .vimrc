@@ -1,83 +1,43 @@
-" Don't try to be vi compatible
-set nocompatible
+inoremap jk <ESC>
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
-
-" TODO: Load plugins here (pathogen or vundle)
-
-" Turn on syntax highlighting
-syntax on
-
-" For plugins to load correctly
-filetype plugin indent on
-
-" TODO: Pick a leader key
 let mapleader = ","
 
-" Security
-set modelines=0
+syntax on
+filetype plugin indent on
 
-" Show line numbers
-set number
-
-" Show file stats
 set ruler
 
-" Blink cursor on error instead of beeping (grr)
 set visualbell
 
-" Encoding
+set number 
+
+set noswapfile
+
 set encoding=utf-8
 
+set ttyfast
+
+set laststatus=2
+
 " Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
-set noshiftround
+set smarttab
+set shiftround
+set autoindent
+set smartindent
 
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
-
-" Allow hidden buffers
-set hidden
-
-" Rendering
-set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Last line
-set showmode
-set showcmd
-
-" Searching
-nnoremap / /\v
-vnoremap / /\v
+" Search
 set hlsearch
-set incsearch
 set ignorecase
-set smartcase
-set showmatch
+set incsearch 
 " clear search
 map <leader><space> :let @/=''<cr>
 
-" Formatting
-map <leader>q gqip
-
-" Color scheme
 set t_Co=256
 set background=dark
-colorscheme default
+
+nnoremap gh g^
+nnoremap gl g_
+
