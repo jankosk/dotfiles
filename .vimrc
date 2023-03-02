@@ -41,3 +41,6 @@ set background=dark
 nnoremap gh g^
 nnoremap gl g_
 
+" Copy to clipboard
+set clipboard=unnamed
+
