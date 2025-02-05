@@ -1,0 +1,15 @@
+[user]
+	name = Jan Koskinen
+	email = jan.koskinen@protonmail.com
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autostash = true

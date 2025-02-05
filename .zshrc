@@ -1,6 +1,6 @@
 source ~/base.zsh
 
-# Prompt
+# PROMPT
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
 add-zsh-hook precmd vcs_info

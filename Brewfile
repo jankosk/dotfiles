@@ -1,0 +1,13 @@
+brew 'git'
+brew 'coreutils'
+brew 'fzf'
+brew 'ripgrep'
+brew 'lazygit'
+brew 'jq'
+brew 'difftastic'
+brew 'watch'
+brew 'tmux'
+brew 'man2html'
+brew 'shellcheck'
+
+cask 'scroll-reverser'

@@ -1,5 +1,11 @@
-function preman() {
-	man -t $1 | open -fa "Preview"
+function htman() {
+  if ! man "$1" > /dev/null 2>&1; then
+    echo "Man page for '$1' not found."
+    return 1
+  fi
+  tmpfile=$(mktemp /tmp/"$1".html)
+  man "$1" | man2html > "$tmpfile"
+  open "$tmpfile"
 }
 
 # Aliases
@@ -8,4 +14,6 @@ alias updatezshrc="source ~/.zshrc"
 alias whatsmyip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ls="ls --color=auto"
 alias ll="ls -lath"
+alias lg="lazygit"
+alias nosleep="caffeinate -i"
 
