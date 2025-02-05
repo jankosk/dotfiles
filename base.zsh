@@ -3,8 +3,11 @@ function htman() {
     echo "Man page for '$1' not found."
     return 1
   fi
-  tmpfile=$(mktemp /tmp/"$1".html)
-  man "$1" | man2html > "$tmpfile"
+  tmpfile=/tmp/"$1".html
+  if [ ! -e "$tmpfile" ]; then
+    tmpfile=$(mktemp /tmp/"$1".html)
+    man "$1" | man2html > "$tmpfile"
+  fi
   open "$tmpfile"
 }
 

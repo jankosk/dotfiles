@@ -10,6 +10,8 @@ brew 'tmux'
 brew 'man2html'
 brew 'shellcheck'
 brew 'tldr'
+brew 'wrk'
+brew 'parallel'
 brew 'tree'
 
 cask 'scroll-reverser'
