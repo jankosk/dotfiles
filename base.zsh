@@ -8,6 +8,15 @@ function htman() {
   open "$tmpfile"
 }
 
+ function oman() {
+   if [[ -z "$1" ]]; then
+     echo "Usage: oman <command>"
+     return 1
+   fi
+   local base_url="https://man.cx/"
+   open "${base_url}${1}"
+ }
+
 # Aliases
 alias aliases="grep 'alias ' ~/base.zsh"
 alias updatezshrc="source ~/.zshrc"
@@ -16,4 +25,3 @@ alias ls="ls --color=auto"
 alias ll="ls -lath"
 alias lg="lazygit"
 alias nosleep="caffeinate -i"
-

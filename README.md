@@ -10,6 +10,11 @@
 - Key Repeat -> Fast
 - Delay Until Repeat -> Short
 
+# Terminal
+
+- Install [Starsip](https://starship.rs/) prompt
+- Install [FiraCode](https://github.com/tonsky/FiraCode) fonts
+
 
 # Brew
 

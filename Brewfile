@@ -9,5 +9,7 @@ brew 'watch'
 brew 'tmux'
 brew 'man2html'
 brew 'shellcheck'
+brew 'tldr'
+brew 'tree'
 
 cask 'scroll-reverser'
