@@ -13,5 +13,8 @@ brew 'tldr'
 brew 'wrk'
 brew 'parallel'
 brew 'tree'
+brew 'bat'
+brew 'font-fira-code'
+brew 'starship'
 
 cask 'scroll-reverser'

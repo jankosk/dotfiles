@@ -1,0 +1,10 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$jobs\
+$time\
+$status\
+$character"""
