@@ -20,6 +20,13 @@ copy_file ".gitconfig" "$HOME/.gitconfig"
 copy_file ".psqlrc" "$HOME/.psqlrc"
 copy_file "utils.zsh" "$HOME/utils.zsh"
 
+# Git identity
+echo "Configuring Git identity..."
+read -p "Enter your full name for Git: " git_name
+read -p "Enter your email address for Git: " git_email
+git config --file "$HOME/.gitconfig" user.name "$git_name"
+git config --file "$HOME/.gitconfig" user.email "$git_email"
+
 # Copy starship config
 mkdir -p "$HOME/.config"
 copy_file "starship.toml" "$HOME/.config/starship.toml"
