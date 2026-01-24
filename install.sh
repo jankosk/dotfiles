@@ -2,13 +2,15 @@
 
 set -e
 
+OS_TYPE=$(uname -s)
+
 copy_file() {
-  local source="$1"
-  local target="$2"
-  if [ -e "$target" ]; then
-    mv "$target" "$target.old"
-  fi
-  cp "$source" "$target"
+	local source="$1"
+	local target="$2"
+	if [ -e "$target" ]; then
+		mv "$target" "$target.old"
+	fi
+	cp "$source" "$target"
 }
 
 # Copy dotfiles
@@ -38,8 +40,16 @@ chmod +x "$HOME/bin/"*
 
 # Install Homebrew if not found
 if ! command -v brew &> /dev/null; then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo "Installing Homebrew..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	if [[ "$OS_TYPE" == "Darwin" ]]; then
+		BREW_PATH="/opt/homebrew/bin/brew"
+	else
+		BREW_PATH="/home/linuxbrew/.linuxbrew/bin/brew"
+	fi
+	eval "$($BREW_PATH shellenv)"
+	# Add brew shellenv to start of .zshrc
+	(echo "eval \"\$($BREW_PATH shellenv)\""; cat "$HOME/.zshrc") | tee "$HOME/.zshrc" > /dev/null
 fi
 
 # Install Homebrew packages

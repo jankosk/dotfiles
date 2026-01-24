@@ -17,6 +17,7 @@ brew 'parallel'
 brew 'tree'
 brew 'bat'
 brew 'starship'
+brew 'shellcheck'
 
 cask 'scroll-reverser'
 cask 'font-fira-code'
