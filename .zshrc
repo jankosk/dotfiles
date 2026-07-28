@@ -1,7 +1,10 @@
-# PROMPT
+# Initialize Devbox Global Environment
+eval "$(devbox global shellenv --init-hook)"
+
+# Prompt
 eval "$(starship init zsh)"
 
-# HISTORY
+# History
 export HISTSIZE=100000
 export SAVEHIST=100000
 export HISTFILE=~/.zsh_history
@@ -9,11 +12,14 @@ export HISTFILE=~/.zsh_history
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 
-# FZF
+# Zsh Autosuggestions
+source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Fzf
 source <(fzf --zsh)
 
-# UTILS
+# Utils
 source ~/utils.zsh
 
-# PATHS
+# Paths
 export PATH="$HOME/bin:$PATH"

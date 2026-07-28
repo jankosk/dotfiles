@@ -1,4 +1,4 @@
-# html man
+# macOS only
 function htman() {
   if ! man "$1" > /dev/null 2>&1; then
     echo "Man page for '$1' not found."
@@ -42,4 +42,5 @@ alias updatezshrc="source ~/.zshrc"
 alias whatsmyip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ls="ls --color=auto"
 alias ll="ls -lath"
+# macOS only
 alias nosleep="caffeinate -i"
