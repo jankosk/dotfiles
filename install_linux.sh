@@ -9,7 +9,9 @@ copy_file() {
 	local source="$1"
 	local target="$2"
 	if [ -e "$target" ]; then
-		mv "$target" "$target.old"
+	    local timestamp
+        timestamp="$(date +%Y%m%d-%H%M%S)"
+		mv "$target" "$target.old.$timestamp"
 	fi
 	cp "$source" "$target"
 }

@@ -1,24 +1,30 @@
 {
-  "packages": [
-    "git@latest",
-    "vim@latest",
-    "zip@latest",
-    "unzip@latest",
-    "coreutils@latest",
-    "fzf@latest",
-    "ripgrep@latest",
-    "lazygit@latest",
-    "jq@latest",
-    "difftastic@latest",
-    "watch@latest",
-    "tmux@latest",
-    "hxtools@latest",
-    "shellcheck@latest",
-    "tldr@latest",
-    "wrk@latest",
-    "parallel@latest",
-    "tree@latest",
-    "bat@latest",
-    "starship@latest"
-  ]
+  "packages": {
+    "git": "latest",
+    "vim": "latest",
+    "zip": "latest",
+    "unzip": "latest",
+    "coreutils": "latest",
+    "fzf": "latest",
+    "ripgrep": "latest",
+    "lazygit": "latest",
+    "jq": "latest",
+    "difftastic": "latest",
+    "watch": "latest",
+    "tmux": "latest",
+    "hxtools": {
+      "version": "latest",
+      "excluded_platforms": [
+        "aarch64-darwin"
+      ]
+    },
+    "shellcheck": "latest",
+    "tldr": "latest",
+    "wrk": "latest",
+    "parallel": "latest",
+    "tree": "latest",
+    "bat": "latest",
+    "starship": "latest",
+    "mise": "latest"
+  }
 }

@@ -9,7 +9,9 @@ copy_file() {
     local source="$1"
     local target="$2"
     if [ -e "$target" ]; then
-        mv "$target" "$target.old"
+        local timestamp
+        timestamp="$(date +%Y%m%d-%H%M%S)"
+        mv "$target" "$target.old.$timestamp"
     fi
     cp "$source" "$target"
 }
@@ -50,7 +52,6 @@ copy_file "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
 echo "Copying bin directory..."
 mkdir -p "$HOME/bin"
 cp -r "$DOTFILES_DIR/bin/"* "$HOME/bin/"
-chmod +x "$HOME/bin/"*
 
 # 6. Install Homebrew if not found
 if ! command -v brew &> /dev/null; then
