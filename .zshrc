@@ -12,6 +12,10 @@ export HISTFILE=~/.zsh_history
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 
+# Zsh completion
+autoload -Uz compinit
+compinit
+
 # Zsh Autosuggestions
 source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
@@ -19,7 +23,7 @@ source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source <(fzf --zsh)
 
 # Utils
-source ~/utils.zsh
+source "$HOME/utils.zsh"
 
 # Paths
 export PATH="$HOME/bin:$PATH"
