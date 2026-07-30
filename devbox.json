@@ -12,12 +12,6 @@
     "difftastic": "latest",
     "watch": "latest",
     "tmux": "latest",
-    "hxtools": {
-      "version": "latest",
-      "excluded_platforms": [
-        "aarch64-darwin"
-      ]
-    },
     "shellcheck": "latest",
     "tldr": "latest",
     "wrk": "latest",

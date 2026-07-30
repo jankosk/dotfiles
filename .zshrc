@@ -22,6 +22,9 @@ source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # Fzf
 source <(fzf --zsh)
 
+# Mise
+eval "$(mise activate zsh)"
+
 # Utils
 source "$HOME/utils.zsh"
 
