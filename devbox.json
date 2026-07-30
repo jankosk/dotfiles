@@ -19,6 +19,7 @@
     "tree": "latest",
     "bat": "latest",
     "starship": "latest",
-    "mise": "latest"
+    "mise": "latest",
+    "delta": "latest"
   }
 }
