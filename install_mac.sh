@@ -42,11 +42,13 @@ read -p "Enter your email address for Git: " git_email
 git config --file "$HOME/.gitconfig" user.name "$git_name"
 git config --file "$HOME/.gitconfig" user.email "$git_email"
 
-
-# 4. Copy starship config
-echo "Copying Starship config..."
+# 4. Copy config files
+echo "Copying config files..."
 mkdir -p "$HOME/.config"
 copy_file "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
+
+mkdir -p "$HOME/.config/lazygit"
+copy_file "$DOTFILES_DIR/config.yaml" "$HOME/.config/lazygit/config.yaml"
 
 # 5. Copy bin directory
 echo "Copying bin directory..."
