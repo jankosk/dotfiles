@@ -20,6 +20,7 @@
     "bat": "latest",
     "starship": "latest",
     "mise": "latest",
-    "delta": "latest"
+    "delta": "latest",
+    "fd": "latest"
   }
 }
