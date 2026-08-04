@@ -1,14 +1,13 @@
 # macOS only
 function htman() {
-  if ! man "$1" > /dev/null 2>&1; then
-    echo "Man page for '$1' not found."
+  if [[ -z "$1" ]]; then
+    echo "Usage: oman <command>"
     return 1
   fi
-  tmpfile=/tmp/"$1".html
-  if [ ! -e "$tmpfile" ]; then
-    tmpfile=$(mktemp /tmp/"$1".html)
-    man "$1" | man2html > "$tmpfile"
-  fi
+  man -w "$1" >/dev/null 2>&1 || { echo "Man page for '$1' not found."; return 1; }
+  local tmpfile
+  tmpfile="$(mktemp "/tmp/$1.XXXXXX.html")" || return 1
+  man "$1" | man2html > "$tmpfile" || return 1
   open "$tmpfile"
 }
 
