@@ -21,6 +21,8 @@
     "starship": "latest",
     "mise": "latest",
     "delta": "latest",
-    "fd": "latest"
+    "fd": "latest",
+    "tree-sitter": "latest",
+    "neovim": "latest"
   }
 }

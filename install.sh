@@ -81,7 +81,10 @@ copy_configs() {
 	copy_file "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
 
 	mkdir -p "$HOME/.config/lazygit"
-	copy_file "$DOTFILES_DIR/config.yml" "$HOME/.config/lazygit/config.yml"
+	copy_file "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
+
+	mkdir -p "$HOME/.config/neovim"
+	copy_file "$DOTFILES_DIR/neovim" "$HOME/.config/neovim"
 }
 
 copy_bin() {
