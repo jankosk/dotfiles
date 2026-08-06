@@ -23,6 +23,7 @@
     "delta": "latest",
     "fd": "latest",
     "tree-sitter": "latest",
-    "neovim": "latest"
+    "neovim": "latest",
+    "btop": "latest"
   }
 }

@@ -7,7 +7,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.g.mapleader = " "
-vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
@@ -15,6 +14,10 @@ vim.opt.shiftwidth = 0 -- set to 0 to default to tabstop value
 
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
+
+-- disable default netrw file explorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics loclist" })
@@ -60,18 +63,41 @@ require("lazy").setup({
         },
     },
     {
-        "https://github.com/stevearc/oil.nvim",
+        "stevearc/oil.nvim",
+        lazy = false,
+        dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for icons
+        opts = {
+          default_file_explorer = true,
+          view_options = {
+            show_hidden = true,
+          },
+        },
+        keys = {
+          { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
+        },
+    },
+    {
+        "https://github.com/nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "https://github.com/nvim-lua/plenary.nvim",
+            "https://github.com/nvim-tree/nvim-web-devicons",
+            "https://github.com/MunifTanjim/nui.nvim",
+        },
+        cmd = "Neotree",
+        keys = {
+            { "<leader>n", "<Cmd>Neotree toggle<CR>", desc = "Toggle Neo-tree" },
+        },
         config = function()
-            require("oil").setup({
-                default_file_explorer = true,
-                view_options = {
-                    show_hidden = true
-                }
+            require("neo-tree").setup({
+                filesystem = {
+                    filtered_items = {
+                        hide_dotfiles = false,
+                        hide_gitignored = false,
+                    },
+                },
             })
         end,
-        keys = {
-            { "-", "<Cmd>Oil<CR>", desc = "Browse files from here" },
-        },
     },
    {
         "https://github.com/windwp/nvim-autopairs",
@@ -133,7 +159,6 @@ require("lazy").setup({
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(event)
                     local opts = { buffer = event.buf }
