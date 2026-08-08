@@ -4,15 +4,17 @@ set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-copy_file() {
+link_file() {
 	local source="$1"
 	local target="$2"
-	if [ -e "$target" ]; then
+	if [ -L "$target" ]; then
+		rm "$target"
+	elif [ -e "$target" ]; then
 		local timestamp
 		timestamp="$(date +%Y%m%d-%H%M%S)"
 		mv "$target" "$target.old.$timestamp"
 	fi
-	cp "$source" "$target"
+	ln -s "$source" "$target"
 }
 
 install_linux_dependencies() {
@@ -58,13 +60,13 @@ install_zsh_autosuggestions() {
 }
 
 copy_dotfiles() {
-	echo "Copying dotfiles..."
-	copy_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
-	copy_file "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
-	copy_file "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
-	copy_file "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
-	copy_file "$DOTFILES_DIR/.psqlrc" "$HOME/.psqlrc"
-	copy_file "$DOTFILES_DIR/utils.zsh" "$HOME/utils.zsh"
+	echo "Linking dotfiles..."
+	link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+	link_file "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
+	link_file "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+	link_file "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+	link_file "$DOTFILES_DIR/.psqlrc" "$HOME/.psqlrc"
+	link_file "$DOTFILES_DIR/utils.zsh" "$HOME/utils.zsh"
 }
 
 configure_git_identity() {
@@ -76,15 +78,11 @@ configure_git_identity() {
 }
 
 copy_configs() {
-	echo "Copying config files..."
+	echo "Linking config files..."
 	mkdir -p "$HOME/.config"
-	copy_file "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
-
-	mkdir -p "$HOME/.config/lazygit"
-	copy_file "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
-
-	mkdir -p "$HOME/.config/neovim"
-	copy_file "$DOTFILES_DIR/neovim" "$HOME/.config/neovim"
+	link_file "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
+	link_file "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
+	link_file "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 }
 
 copy_bin() {

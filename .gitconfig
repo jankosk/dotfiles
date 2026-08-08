@@ -25,3 +25,6 @@
 
 [merge]
 	conflictStyle = zdiff3
+
+[alias]
+    difft = !GIT_EXTERNAL_DIFF=difft git diff
