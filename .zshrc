@@ -25,6 +25,9 @@ source <(fzf --zsh)
 # Mise
 eval "$(mise activate zsh)"
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Utils
 source "$HOME/utils.zsh"
 

@@ -24,6 +24,8 @@
     "fd": "latest",
     "tree-sitter": "latest",
     "neovim": "latest",
-    "btop": "latest"
+    "btop": "latest",
+    "zoxide": "latest",
+    "lazydocker": "latest"
   }
 }

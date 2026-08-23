@@ -1,4 +1,4 @@
 brew 'man2html'
-cask 'scroll-reverser'
+brew 'mac-mouse-fix'
 cask 'font-fira-code'
 cask 'ghostty'
